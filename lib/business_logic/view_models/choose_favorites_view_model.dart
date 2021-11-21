@@ -6,13 +6,11 @@ import 'package:flutterprovider/services/currency/currency_service.dart';
 import 'package:flutterprovider/services/service_locator.dart';
 
 class ChooseFavoritesViewModel extends ChangeNotifier {
-  // 3
   final CurrencyService _currencyService = serviceLocator<CurrencyService>();
 
   List<FavoritePresentation> _choices = [];
   List<Currency> _favorites = [];
 
-  // 4
   List<FavoritePresentation> get choices => _choices;
 
   void loadData() async {
@@ -39,8 +37,9 @@ class ChooseFavoritesViewModel extends ChangeNotifier {
 
   bool _getFavoriteStatus(String code) {
     for (Currency currency in _favorites) {
-      if (code == currency.isoCode)
+      if (code == currency.isoCode) {
         return true;
+      }
     }
     return false;
   }

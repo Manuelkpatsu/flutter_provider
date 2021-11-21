@@ -13,9 +13,9 @@ class CurrencyServiceImpl implements CurrencyService {
   static final defaultFavorites = [Currency('EUR'), Currency('USD')];
 
   @override
-  Future<List<Rate>> getAllExchangeRates({required String base}) async {
+  Future<List<Rate>> getAllExchangeRates({String? base}) async {
     List<Rate> webData = await _webApi.fetchExchangeRates();
-    if (base.isNotEmpty) {
+    if (base!.isNotEmpty) {
       return _convertBaseCurrency(base, webData);
     }
     return webData;

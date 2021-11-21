@@ -8,7 +8,7 @@ import 'currency_service.dart';
 class CurrencyServiceFake implements CurrencyService {
 
   @override
-  Future<List<Rate>> getAllExchangeRates({required String base}) async {
+  Future<List<Rate>> getAllExchangeRates({String? base}) async {
     return [];
   }
 
